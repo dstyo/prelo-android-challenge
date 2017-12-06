@@ -6,4 +6,9 @@
 
     //Menu
     <string name="menu_lovelist">Lovelist</string>
+
+    //Login
+    <string name="text_login">Login</string>
+    <string name="text_email">Email</string>
+    <string name="text_password">Password</string>
 </resources>
