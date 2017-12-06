@@ -9,6 +9,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        buildConfigField "String", "BASEURL", "\"https://dev.prelo.id/api/\""
+
     }
     buildTypes {
         release {
@@ -16,13 +19,39 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support:design:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    //support
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.support
+    implementation supportDependencies.design
+    implementation supportDependencies.recyclerView
+    implementation supportDependencies.cardView
+
+    //networking
+    implementation libraries.okhttp
+    implementation libraries.okhttpLogging
+    implementation libraries.retrofit
+    implementation libraries.retrofitGson
+    implementation libraries.retrofitRx
+    implementation libraries.retrofitScalar
+    implementation libraries.glassfishJavaxAnnotation
+
+    //imageLoader
+    implementation libraries.glide
+
+    //dependencyInjection
+    implementation libraries.dagger
+    annotationProcessor libraries.daggerCompiler
+    provided libraries.javaxAnnotation
+
+    //Reactive
+    implementation libraries.rxAndroid
+    implementation libraries.rxJava
 }
