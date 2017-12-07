@@ -8,10 +8,6 @@ import com.dstyo.prelo.model.login.LoginResponse;
  */
 public interface LoginView {
 
-    void showProgressLoading();
-
-    void hideProgressLoading();
-
     void onSuccessLogin(LoginResponse response);
 
     void onErrorLogin(String error);
