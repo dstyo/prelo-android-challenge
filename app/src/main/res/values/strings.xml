@@ -5,7 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     //Menu
-    <string name="menu_lovelist">Lovelist</string>
+    <string name="menu_lovelist">lovelist</string>
 
     //Login
     <string name="text_login">Login</string>

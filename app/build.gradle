@@ -45,6 +45,7 @@ dependencies {
 
     //imageLoader
     implementation libraries.glide
+    implementation libraries.circleImageView
 
     //dependencyInjection
     implementation libraries.dagger
