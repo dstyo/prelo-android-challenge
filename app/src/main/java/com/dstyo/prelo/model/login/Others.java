@@ -1,4 +1,4 @@
-package com.dstyo.prelo.model;
+package com.dstyo.prelo.model.login;
 
 import android.os.Parcel;
 import android.os.Parcelable;

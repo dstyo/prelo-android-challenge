@@ -1,4 +1,4 @@
-package com.dstyo.prelo.model;
+package com.dstyo.prelo.model.login;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -13,7 +13,7 @@ import java.util.List;
  * @since 2017.07.12
  */
 
-public class Data implements Parcelable {
+public class LoginData implements Parcelable {
 
     @SerializedName("shipping_preferences_ids")
     @Expose
@@ -170,10 +170,10 @@ public class Data implements Parcelable {
         dest.writeString(this.token);
     }
 
-    public Data() {
+    public LoginData() {
     }
 
-    protected Data(Parcel in) {
+    protected LoginData(Parcel in) {
         this.shippingPreferencesIds = in.createStringArrayList();
         this.id = in.readString();
         this.profile = in.readParcelable(Profile.class.getClassLoader());
@@ -188,15 +188,15 @@ public class Data implements Parcelable {
         this.token = in.readString();
     }
 
-    public static final Parcelable.Creator<Data> CREATOR = new Parcelable.Creator<Data>() {
+    public static final Parcelable.Creator<LoginData> CREATOR = new Parcelable.Creator<LoginData>() {
         @Override
-        public Data createFromParcel(Parcel source) {
-            return new Data(source);
+        public LoginData createFromParcel(Parcel source) {
+            return new LoginData(source);
         }
 
         @Override
-        public Data[] newArray(int size) {
-            return new Data[size];
+        public LoginData[] newArray(int size) {
+            return new LoginData[size];
         }
     };
 }

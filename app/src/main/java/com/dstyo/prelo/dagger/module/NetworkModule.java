@@ -1,7 +1,7 @@
 package com.dstyo.prelo.dagger.module;
 
-import com.dstyo.prelo.network.ApiService;
-import com.dstyo.prelo.network.RestClient;
+import com.dstyo.prelo.network.api.ApiService;
+import com.dstyo.prelo.network.api.RestClient;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
