@@ -5,5 +5,6 @@ package com.dstyo.prelo.util;
  * @since 2017.07.12
  */
 public class Const {
-    public static String USER = "user";
+    public static String LOGIN = "login";
+    public static String TOKEN = "Token";
 }

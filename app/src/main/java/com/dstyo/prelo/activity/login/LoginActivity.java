@@ -90,7 +90,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     @Override
     public void onSuccessLogin(LoginResponse response) {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra(Const.USER, response.getData());
+        intent.putExtra(Const.LOGIN, response.getData());
         startActivity(intent);
     }
 
