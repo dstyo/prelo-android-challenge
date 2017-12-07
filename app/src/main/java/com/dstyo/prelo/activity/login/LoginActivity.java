@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.EditText;
 
 import com.dstyo.prelo.BaseApplication;
 import com.dstyo.prelo.R;
@@ -62,29 +63,48 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                InputHelper.hideKeyboard(LoginActivity.this);
-                User user = new User();
-                user.setUsername(binding.inputEmail.getText().toString());
-                user.setPassword(binding.inputPassword.getText().toString());
-                presenter.userLogin(user);
+                if (validate()) {
+                    InputHelper.hideKeyboard(LoginActivity.this);
+                    User user = new User();
+                    user.setUsername(binding.inputEmail.getText().toString());
+                    user.setPassword(binding.inputPassword.getText().toString());
+                    presenter.userLogin(user);
+                }
             }
         };
+    }
+
+    /**
+     * This Method For Validate Email and Password
+     */
+    private boolean validate() {
+        int emailErrorRes = 0;
+        int passwordErrorRes = 0;
+
+        if (isInputEmpty(binding.inputEmail, 5)) {
+            emailErrorRes = R.string.error_email;
+        }
+        if (isInputEmpty(binding.inputEmail, 7)) {
+            passwordErrorRes = R.string.error_password;
+        }
+        binding.textInputEmail.setError(getError(emailErrorRes));
+        binding.textInputPassword.setError(getError(passwordErrorRes));
+        return emailErrorRes == 0 && passwordErrorRes == 0;
+    }
+
+    private boolean isInputEmpty(EditText editText, int length) {
+        return editText.getText().toString().isEmpty() ||
+                editText.getText().toString().length() < length;
+    }
+
+    private CharSequence getError(int error) {
+        return error != 0 ? getString(error) : null;
     }
 
     private void init() {
         LoginHandler handler = new LoginHandler();
         handler.setPresenter(presenter);
         binding.setHandler(handler);
-    }
-
-    @Override
-    public void showProgressLoading() {
-        presenter.showLoading();
-    }
-
-    @Override
-    public void hideProgressLoading() {
-        presenter.hideLoading();
     }
 
     @Override

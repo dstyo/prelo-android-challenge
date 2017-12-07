@@ -9,6 +9,8 @@
 
     //Login
     <string name="text_login">Login</string>
-    <string name="text_email">Email</string>
+    <string name="text_email">Email / Username</string>
     <string name="text_password">Password</string>
+    <string name="error_email">Email tidak boleh kosong dan minimal 4 karakter</string>
+    <string name="error_password">Password minimal 6 karakter</string>
 </resources>
