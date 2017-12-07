@@ -15,6 +15,7 @@ import com.dstyo.prelo.R;
 import com.dstyo.prelo.adapter.ProductAdapter;
 import com.dstyo.prelo.base.BaseActivity;
 import com.dstyo.prelo.databinding.ActivityMainBinding;
+import com.dstyo.prelo.databinding.NavHeaderMainBinding;
 import com.dstyo.prelo.model.login.LoginData;
 import com.dstyo.prelo.model.product.Product;
 import com.dstyo.prelo.model.product.ProductResponse;
@@ -64,14 +65,25 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         setSupportActionBar(binding.toolbar);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, binding.drawerLayout, binding.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, binding.drawerLayout, binding.toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
         binding.drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        NavHeaderMainBinding navBinding = DataBindingUtil.inflate(getLayoutInflater(),
+                R.layout.nav_header_main, binding
+                        .navView, false);
+
+        binding.navView.addHeaderView(navBinding.getRoot());
         binding.navView.setNavigationItemSelectedListener(this);
+
 
         if (getIntent().getExtras() != null) {
             loginData = getIntent().getExtras().getParcelable(Const.LOGIN);
         }
+
+        navBinding.setViewModel(new ProfileViewModel(loginData));
 
         MainHandler handler = new MainHandler();
         handler.setPresenter(presenter);
