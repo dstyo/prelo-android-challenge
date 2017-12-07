@@ -1,6 +1,7 @@
 package com.dstyo.prelo.dagger.component;
 
 import com.dstyo.prelo.activity.login.LoginActivity;
+import com.dstyo.prelo.activity.main.MainActivity;
 import com.dstyo.prelo.dagger.module.AppModule;
 import com.dstyo.prelo.dagger.module.NetworkModule;
 
@@ -16,4 +17,5 @@ import dagger.Component;
 @Component(modules = {AppModule.class, NetworkModule.class})
 public interface AppComponent {
     void inject(LoginActivity loginActivity);
+    void inject(MainActivity mainActivity);
 }

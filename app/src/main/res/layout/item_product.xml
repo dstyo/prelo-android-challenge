@@ -1,0 +1,83 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.dstyo.prelo.activity.main.ItemProductViewModel" />
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_x10"
+        android:layout_marginBottom="-8dp"
+        android:layout_marginLeft="@dimen/space_x2"
+        android:layout_marginRight="@dimen/space_x2"
+        android:layout_marginTop="@dimen/space"
+        app:cardElevation="@dimen/space_half"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:id="@+id/layout_product"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_logo_product"
+                android:layout_width="@dimen/space_x8"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{viewModel.productImageURL}" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/space"
+                android:layout_marginStart="@dimen/space"
+                android:layout_toEndOf="@+id/img_logo_product"
+                android:layout_toRightOf="@+id/img_logo_product">
+
+                <TextView
+                    android:id="@+id/txt_title_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{viewModel.productTitle}"
+                    tools:text="Jual Beli Murah Prelo Aja" />
+
+                <RelativeLayout
+                    android:id="@+id/layout_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_title_product"
+                    android:layout_alignStart="@+id/txt_title_product"
+                    android:layout_below="@+id/txt_title_product"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/space">
+
+                    <TextView
+                        android:id="@+id/txt_price_product"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@{viewModel.productPrice}"
+                        tools:text="Rp 100000" />
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>
