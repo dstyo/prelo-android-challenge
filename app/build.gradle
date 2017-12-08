@@ -9,6 +9,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        buildConfigField "String", "BASEURL", "\"https://dev.prelo.id/api/\""
+
     }
     buildTypes {
         release {
@@ -16,13 +19,76 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
+    dataBinding {
+        enabled = true
+    }
+    sourceSets {
+        androidTest.setRoot('src/androidTest/java')
+        androidTest {
+            java.srcDirs = ['src/androidTest/java']
+            assets.srcDirs = ['src/androidTest/assets']
+        }
+        test.setRoot('src/test/java')
+        test {
+            java.srcDirs = ['src/test/java']
+            assets.srcDirs = ['src/test/assets']
+        }
+    }}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support:design:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    //support
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.support
+    implementation supportDependencies.design
+    implementation supportDependencies.recyclerView
+    implementation supportDependencies.cardView
+
+    //networking
+    implementation libraries.okhttp
+    implementation libraries.okhttpLogging
+    implementation libraries.retrofit
+    implementation libraries.retrofitGson
+    implementation libraries.retrofitRx
+    implementation libraries.retrofitScalar
+    implementation libraries.glassfishJavaxAnnotation
+
+    //imageLoader
+    implementation libraries.glide
+    implementation libraries.circleImageView
+
+    //dependencyInjection
+    implementation libraries.dagger
+    annotationProcessor libraries.daggerCompiler
+    provided libraries.javaxAnnotation
+
+    //Reactive
+    implementation libraries.rxAndroid
+    implementation libraries.rxJava
+
+    //AndroidTest
+    androidTestCompile(testSupportDependencies.runner) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile(testSupportDependencies.rules) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile(testSupportDependencies.espressoCore) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile(testSupportDependencies.espressoIntents) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile('com.android.support:multidex-instrumentation:1.0.1') {
+        exclude group: 'com.android.support', module: 'multidex'
+    }
+    androidTestCompile testLibraries.mockWebServer
+    androidTestCompile(testSupportDependencies.espressoContrib) {
+        exclude group: 'com.android.support'
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'cardview-v7'
+    }
+    androidTestCompile testLibraries.mockitoCore
 }

@@ -5,5 +5,12 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     //Menu
-    <string name="menu_lovelist">Lovelist</string>
+    <string name="menu_lovelist">lovelist</string>
+
+    //Login
+    <string name="text_login">Login</string>
+    <string name="text_email">Email / Username</string>
+    <string name="text_password">Password</string>
+    <string name="error_email">Email tidak boleh kosong dan minimal 4 karakter</string>
+    <string name="error_password">Password minimal 6 karakter</string>
 </resources>
