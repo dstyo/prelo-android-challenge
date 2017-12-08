@@ -68,6 +68,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
                     User user = new User();
                     user.setUsername(binding.inputEmail.getText().toString());
                     user.setPassword(binding.inputPassword.getText().toString());
+                    binding.inputEmail.getText().clear();
+                    binding.inputPassword.getText().clear();
                     presenter.userLogin(user);
                 }
             }

@@ -22,7 +22,18 @@ android {
     dataBinding {
         enabled = true
     }
-}
+    sourceSets {
+        androidTest.setRoot('src/androidTest/java')
+        androidTest {
+            java.srcDirs = ['src/androidTest/java']
+            assets.srcDirs = ['src/androidTest/assets']
+        }
+        test.setRoot('src/test/java')
+        test {
+            java.srcDirs = ['src/test/java']
+            assets.srcDirs = ['src/test/assets']
+        }
+    }}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -55,4 +66,29 @@ dependencies {
     //Reactive
     implementation libraries.rxAndroid
     implementation libraries.rxJava
+
+    //AndroidTest
+    androidTestCompile(testSupportDependencies.runner) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile(testSupportDependencies.rules) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile(testSupportDependencies.espressoCore) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile(testSupportDependencies.espressoIntents) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile('com.android.support:multidex-instrumentation:1.0.1') {
+        exclude group: 'com.android.support', module: 'multidex'
+    }
+    androidTestCompile testLibraries.mockWebServer
+    androidTestCompile(testSupportDependencies.espressoContrib) {
+        exclude group: 'com.android.support'
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'cardview-v7'
+    }
+    androidTestCompile testLibraries.mockitoCore
 }
