@@ -58,7 +58,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     @Override
     protected void onViewReady(Bundle savedInstanceState) {
         init();
-        fetchDataProduct(loginData.getToken());
+        if (loginData != null) {
+            fetchDataProduct(loginData.getToken());
+        }
     }
 
     private void init() {

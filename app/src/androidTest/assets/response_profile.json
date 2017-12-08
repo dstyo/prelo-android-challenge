@@ -1,0 +1,73 @@
+{
+  "_data": {
+    "shipping_preferences_ids": [
+      "539e6565ec99937c05000001",
+      "53eada3f9fef017412000001",
+      "58ae9289421ea6a6c0a023e6"
+    ],
+    "_id": "59e869e578ba0161cf817e24",
+    "profile": {
+      "pict": "https://s3-ap-southeast-1.amazonaws.com/prelo-dev/images/users/thumbnail/man.png",
+      "gender": "Pria",
+      "phone": "+62123456789",
+      "province_id": "533f81356d07364195779446",
+      "region_id": "53a6baa70ceb958f7800003f",
+      "subdistrict_id": "5758f28cf8ec1c50289c72d9",
+      "subdistrict_name": "Lengkong"
+    },
+    "username": "applicant",
+    "email": "applicant@prelo.id",
+    "fullname": "Applicant",
+    "others": {
+      "register_time": "2017-10-19T09:01:25.439Z",
+      "platform_register_from": "web",
+      "last_login": "2017-12-08T03:58:10.077Z",
+      "register_by_fb": false,
+      "register_by_path": false,
+      "register_by_twitter": false,
+      "register_by_google": false,
+      "last_seen": "2017-11-30T04:07:08.432Z",
+      "last_sent_sms": "2017-10-19T09:02:11.702Z",
+      "is_phone_verified": false,
+      "phone_code": "DPWQ",
+      "total_sent_sms": 1,
+      "device_registration_id": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36",
+      "device_type": "web",
+      "email_code": "afee09d83a0c523fe3b3446f1e09fad5c6f318280b335212aa3b0d0ffd4d5dde280d724ddb17397d5b2ee18024b873539162fba918030dfa9c76d94e151a4db0",
+      "is_email_verified": false,
+      "num_reviewer": 0,
+      "total_star": 0,
+      "max_push_in_period": 1,
+      "push_product_period": 3,
+      "category_preferences_ids": [],
+      "fa_id": [],
+      "ga_id": []
+    },
+    "main_bank_account": {},
+    "rent": {
+      "docs": []
+    },
+    "shop": {
+      "status": 1,
+      "start_date": null,
+      "end_date": null
+    },
+    "default_address": {
+      "_id": "59e86a1478ba0161cf817e27",
+      "is_default": true,
+      "create_time": "2017-10-19T09:02:12.396Z",
+      "postal_code": "",
+      "address": "",
+      "subdistrict_name": "Lengkong",
+      "subdistrict_id": "5758f28cf8ec1c50289c72d9",
+      "region_name": "Bandung",
+      "region_id": "53a6baa70ceb958f7800003f",
+      "province_name": "Jawa Barat",
+      "province_id": "533f81356d07364195779446",
+      "phone": "+62123456789",
+      "owner_name": "Applicant",
+      "address_name": "Rumah"
+    },
+    "token": "FibgVnns7rQaFnwKkxqb95U5DINFB7kz8X07dded"
+  }
+}
